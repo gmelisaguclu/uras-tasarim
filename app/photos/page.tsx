@@ -1,5 +1,7 @@
 import React from "react";
 
-export const page = () => {
+const PhotosPage = () => {
   return <div>Galeri</div>;
 };
+
+export default PhotosPage;

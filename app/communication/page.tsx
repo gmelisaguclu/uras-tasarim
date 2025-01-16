@@ -1,5 +1,7 @@
 import React from "react";
 
-export const page = () => {
+const CommunicationPage = () => {
   return <div>İletişim</div>;
 };
+
+export default CommunicationPage;

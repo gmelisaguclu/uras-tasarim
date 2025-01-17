@@ -1,181 +1,90 @@
+"use client";
+import { useInView } from "react-intersection-observer";
+
 export const WhyChooseUs = () => {
+  const { ref: sectionRef, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+    rootMargin: "-50px 0px",
+  });
+
   return (
-    <div className="flex flex-col gap-8 py-12">
-      <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 px-2">
-        Neden <span className="text-primary-light">Uras Tasarım</span>
-      </h2>
+    <div ref={sectionRef} className="py-16 relative overflow-hidden">
+      {/* Arkaplan dekoratif elementler */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-secondary/10 to-secondary/5 -skew-y-3 z-0" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl animate-pulse delay-700" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-          <div className="flex items-start gap-4">
-            <div className="text-primary-light text-3xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-primary-light mb-3">
-                Zırhlı araç Atış Mazgalı
-              </h3>
-              <p className="text-secondary-light">İsteklerinize uygun üretim</p>
-            </div>
-          </div>
+      <div className="relative z-10">
+        <div className="text-center mb-12">
+          <h2
+            className={`text-3xl sm:text-4xl font-bold mb-4 animate-text bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent bg-300% transform transition-all duration-700 ${
+              inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+            }`}
+          >
+            Neden{" "}
+            <span className="text-primary-light hover:text-primary transition-colors">
+              Uras Tasarım
+            </span>
+          </h2>
+          <p
+            className={`text-secondary-light max-w-2xl mx-auto transform transition-all duration-700 delay-200 ${
+              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
+            Yenilikçi çözümler ve güvenilir hizmet anlayışımızla savunma
+            sanayinde öncü firma olmaya devam ediyoruz
+          </p>
         </div>
 
-        <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-          <div className="flex items-start gap-4">
-            <div className="text-primary-light text-3xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-primary-light mb-3">
-                Sırt tipi Jammer Taşıyıcı
-              </h3>
-              <p className="text-secondary-light">
-                Çağa uygun gelişmiş makine parkuru
-              </p>
-            </div>
-          </div>
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {[...Array(6)].map((_, index) => (
+            <div
+              key={index}
+              className={`group bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-lg hover:shadow-primary/5 relative overflow-hidden hover:-translate-y-1 ${
+                inView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-20"
+              }`}
+              style={{
+                transitionDelay: `${(index + 1) * 100}ms`,
+                transitionProperty: "all",
+                willChange: "transform, opacity",
+              }}
+            >
+              {/* Kart içi parıltı efekti */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-light/5 to-transparent group-hover:translate-x-full duration-1000 transition-transform" />
 
-        <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-          <div className="flex items-start gap-4">
-            <div className="text-primary-light text-3xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
+              <div className="flex items-start gap-4 relative">
+                <div className="text-primary-light text-3xl p-3 bg-secondary/20 rounded-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                  {/* İkon arkası parıltı */}
+                  <div className="absolute inset-0 bg-primary-light/10 rounded-lg group-hover:blur-sm transition-all duration-300" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-primary-light mb-3 group-hover:text-primary transition-colors duration-300">
+                    Zırhlı araç Atış Mazgalı
+                  </h3>
+                  <p className="text-secondary-light group-hover:text-secondary-light/80 transition-colors duration-300">
+                    İsteklerinize uygun üretim
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-primary-light mb-3">
-                3 Eksen Anten Test Aparatı
-              </h3>
-              <p className="text-secondary-light">
-                Prototip Üretimi Teknolojisi
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-          <div className="flex items-start gap-4">
-            <div className="text-primary-light text-3xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                <line x1="6" y1="1" x2="6" y2="4"></line>
-                <line x1="10" y1="1" x2="10" y2="4"></line>
-                <line x1="14" y1="1" x2="14" y2="4"></line>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-primary-light mb-3">
-                Çeşitli Simülatör Kabinleri
-              </h3>
-              <p className="text-secondary-light">100% Yerli İmkanlarla</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-          <div className="flex items-start gap-4">
-            <div className="text-primary-light text-3xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-primary-light mb-3">
-                Zırhlı araç içi Silah Mahfesi
-              </h3>
-              <p className="text-secondary-light">
-                %100 Yerli ve Milli İmkanlarla Mühendislik
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-lg border border-secondary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-          <div className="flex items-start gap-4">
-            <div className="text-primary-light text-3xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="3" />
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-primary-light mb-3">
-                Mekanik Tasarımlar
-              </h3>
-              <p className="text-secondary-light">
-                İmalata Uygun Tasarım ve Modelleme
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

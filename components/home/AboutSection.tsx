@@ -1,12 +1,27 @@
+"use client";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useInView } from "react-intersection-observer";
 
 export const AboutSection = () => {
+  const { ref: sectionRef, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+    rootMargin: "-50px 0px",
+  });
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start bg-secondary/5 rounded-xl p-4 sm:p-8">
-      <div className="flex flex-col gap-4">
+    <div
+      ref={sectionRef}
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start bg-secondary/5 rounded-xl p-4 sm:p-8"
+    >
+      <div
+        className={`flex flex-col gap-4 transform transition-all duration-700 ${
+          inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
+        }`}
+      >
         <h2 className="text-3xl font-bold text-primary-light">
           Hakkımızda Uras Tasarım
         </h2>
@@ -27,7 +42,16 @@ export const AboutSection = () => {
         </p>
       </div>
 
-      <div className="bg-secondary/20 p-6 rounded-xl backdrop-blur-sm border border-secondary/10">
+      <div
+        className={`bg-secondary/20 p-6 rounded-xl backdrop-blur-sm border border-secondary/10 transform transition-all duration-700 ${
+          inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
+        }`}
+        style={{
+          transitionDelay: "200ms",
+          transitionProperty: "all",
+          willChange: "transform, opacity",
+        }}
+      >
         <h3 className="text-xl font-semibold mb-4 text-primary-light">
           Bize Ulaşın
         </h3>

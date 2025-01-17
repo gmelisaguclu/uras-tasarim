@@ -3,8 +3,8 @@ import Image from "next/image";
 export const ServicesSection = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div className="bg-primary p-6 rounded-xl text-white">
-        <div className="h-48 relative mb-4 rounded-lg overflow-hidden">
+      <div className="border-2 p-6 rounded-xl text-white">
+        <div className="h-48 relative mb-4  overflow-hidden">
           <Image
             src="/image/mekanik tasarım.jpg"
             alt="Mekanik Tasarım"
@@ -23,8 +23,8 @@ export const ServicesSection = () => {
         </button>
       </div>
 
-      <div className="bg-primary p-6 rounded-xl text-white">
-        <div className="h-48 relative mb-4 rounded-lg overflow-hidden">
+      <div className="border-2 p-6 rounded-xl text-white">
+        <div className="h-48 relative mb-4  overflow-hidden">
           <Image
             src="/image/mekanik tasarım ve üretim danışmanlığı.jpg"
             alt="Mekanik Tasarım ve Üretim Danışmanlığı"
@@ -45,8 +45,8 @@ export const ServicesSection = () => {
         </button>
       </div>
 
-      <div className="bg-primary p-6 rounded-xl text-white">
-        <div className="h-48 relative mb-4 rounded-lg overflow-hidden">
+      <div className="border-2 p-6 rounded-xl text-white">
+        <div className="h-48 relative mb-4  overflow-hidden">
           <Image
             src="/image/üretim planlama ve takibi.jpg"
             alt="Üretim Planlama Ve Takibi"

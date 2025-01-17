@@ -21,22 +21,23 @@ export const ImageSlider = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[500px] rounded-xl overflow-hidden">
+    <div className="relative w-full h-[600px] -my-8">
       <div className="relative w-full h-full">
         <Image
           src={images[currentImage]}
           alt={`Slide ${currentImage + 1}`}
           fill
-          className="object-cover transition-all duration-1000"
+          className="object-cover transition-all duration-1000 brightness-75"
           priority
         />
       </div>
-      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-        <div className="text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            URAS TASARIM VE MÜHENDİSLİK
+      <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            URAS TASARIM VE{" "}
+            <span className="text-primary-light">MÜHENDİSLİK</span>
           </h1>
-          <p className="text-xl md:text-2xl">
+          <p className="text-xl md:text-2xl text-secondary-light">
             Kalite ve Güvenilirlik Bizim İşimiz
           </p>
         </div>

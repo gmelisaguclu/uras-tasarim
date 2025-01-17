@@ -32,7 +32,7 @@ export const Navbar = () => {
               className="object-contain"
             />
           </div>
-          <div className="text-left font-bold text-sm md:text-base text-primary">
+          <div className="text-left font-bold md:text-base text-xl text-primary">
             URAS TASARIM VE MÜHENDİSLİK
           </div>
         </div>
